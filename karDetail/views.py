@@ -21,7 +21,8 @@ def add_car(request):
         form = CarForm()
 
     return render(request, 'detail.html', {'form': form})
-
+    
+@login_required
 class CarDetailView(DetailView):
     model = models.Car
     template_name = 'viewDetail.html'
