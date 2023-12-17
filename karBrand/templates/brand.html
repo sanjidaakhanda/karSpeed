@@ -1,0 +1,10 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form style='width:50%;margin:auto;'class='mt-5' method='post'>
+    {% csrf_token %}
+    <h1> Brand</h1>
+    {{form | crispy}}
+</form>
+{% endblock  %}

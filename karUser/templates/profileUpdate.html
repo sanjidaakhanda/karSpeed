@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% csrf_token %}
+{{user}}
+
+{% if messages %}
+{% for m in messages %}
+<small class="fw-bold text-danger text-center p-3"> {{m}}</small>
+{% endfor %}
+{% endif %}
+<form method='post' style="width:50%;margin:auto;" class="mt-5">
+{% csrf_token %}
+    
+<h3 class="text-center text-warning">Update Your Profile</h3>
+
+   <!-- {{ form | crispy }} -->
+{% for fm in form %}
+{{ fm.label_tag }}
+{{ fm }}
+   
+   <p class="text-danger"> {{ fm.errors|striptags }}</p>
+   {% endfor %}
+<br/>
+   <button class = "btn btn-outline-warning m-2"> Submit</button>
+   <button class=" btn btn-outline-warning text-dark m-2"> <a href="{% url 'password'%}" class="text-decoration-none text-dark"> Change Your Password </a></button>
+</form>
+{% endblock  %}
