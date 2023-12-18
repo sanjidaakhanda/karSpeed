@@ -1,36 +1,75 @@
 {% extends "base.html" %}
 {% load static %}
 {% block  content%}
-<div class="container text-center">
-    <div class="row ow align-items-center justify-content-center mt-5">
+<div class="container text-center p-3">
+    <div class="row  align-items-center justify-content-center mt-5">
         <div class="col-md-6 ">
-            <p class="text-dark fw-bold">
-             <span class="fw-bold text-warning fs-4"> KarSpeed Car </span> is a premier destination for individuals looking to buy, sell, or explore a diverse range of high-quality vehicles. With a commitment to providing a seamless and enjoyable automotive experience, KarHub stands out as a trusted platform that caters to the needs of both buyers and sellers in the dynamic automotive market.
+            
+          <h1 style="color: #0F4C81; font-family: 'Arial', sans-serif; font-size: 24px; font-weight: bold;">
+            Experience the Difference, Drive with Confidence.
+        </h1>
+            <p class="text-dark fw-semibold">
+              "At Karspeed, we go beyond selling cars; we deliver an unmatched experience, ensuring each customer finds not just a vehicle, but a reliable companion for their journey."
             </p>
            </div>
 
       <div class="col-md-6">
-        <img class =" img-fluid" src="{% static 'car-7.avif' %}" alt="" />
+        <img class =" img-fluid bg-image hover-zoom" src="{% static 'car-7.avif' %}" alt="" style="border-radius:20px;" />
       </div>
     
     </div>
-<h2>{{cars | length }}</h2>
+    
+    <h4 class="m-5 ">
+      {% for b in brand %}
+        <small class="fw-bold m-2">
+           <a class="text-decoration-none "style="color: #0F4C81;" href="{% url 'brand_wise_car' b.slug %}">{{ b.b_name }} </a> 
+         </small> 
+         
+      {% endfor %}
+      </h4>
+      <hr>
+      <h4 class="m-4 fw-bold" ><span style="color: #0F4C81;">Total Car Found:</span>{{ cars|length }}</h4>
 
-<div class="container">
+
+<div class="container ">
   <div class="row">
       {% for car in cars %}
           <div class="col-md-4 mb-4">
-              <div class="card" style="width: 18rem;">
+              <div class="card shadow-lg" style="width: 18rem;">
                 <img src="{{car.image.url}}" class="card-img-top" alt="Placeholder Image">
                   <div class="card-body">
-                      <h5 class="card-title"> Name-{{ car.name }}</h5>
-                      <p class="card-text">Car_detail-{{ car.detail }}</p>
-                      <p class="card-text">Price-{{ car.price }}</p>
-                      <a href="{% url 'view_all' car.id %}" class="btn btn-primary">View Details</a>
+                      <h5 class="card-title fw-bold" style="color: #0F4C81;"> {{ car.name }}</h5>
+                      <p class="card-text fw-bold" style="color: #0F4C81;">Price: {{ car.price }}</p>
+                      
+                      <p class="fw-bold" style="color: #0F4C81;">
+                        Brand:
+                        {% for b in car.brand.all %}
+                         <small class="fw-bold m-2">
+                            {{b.b_name}}
+                      </small>
+                        
+                        {% endfor %}
+                    </p>
+                      <a href="{% url 'view_all' car.id %}" class="btn btn-warning">View Details</a>
                   </div>
               </div>
           </div>
       {% endfor %}
   </div>
 </div>
+
+
+{% comment %} third-part {% endcomment %}
+
+
+<div class="banner-container hover-overlay hover-zoom hover-shadow ripple p-5 m-2" style="background-image: url('{% static 'banner.jpg' %}'); height:300px; border-radius:10px; ">
+  <!-- Your banner content goes here -->
+  <h1 class="text-center fw-bold text-dark">Welcome to Our Car Dealership</h1>
+  <p class="text-center fw-bold">Explore our collection of top-notch cars.</p>
+</div>
+
+
+
+
+
 {% endblock  %}

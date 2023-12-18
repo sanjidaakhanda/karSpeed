@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 {% csrf_token %}
-{{user}}
+
 
 {% if messages %}
 {% for m in messages %}
@@ -12,7 +12,7 @@
 <form method='post' style="width:50%;margin:auto;" class="mt-5">
 {% csrf_token %}
     
-<h3 class="text-center text-warning">Update Your Profile</h3>
+<h3 class="text-center p-5" style="color: #0F4C81;">Update Your Profile</h3>
 
    <!-- {{ form | crispy }} -->
 {% for fm in form %}
@@ -23,6 +23,6 @@
    {% endfor %}
 <br/>
    <button class = "btn btn-outline-warning m-2"> Submit</button>
-   <button class=" btn btn-outline-warning text-dark m-2"> <a href="{% url 'password'%}" class="text-decoration-none text-dark"> Change Your Password </a></button>
+   <button class=" btn btn-outline-warning text-dark"> <a href="{% url 'password'%}" class="text-decoration-none text-dark"> Change Your Password </a></button>
 </form>
 {% endblock  %}

@@ -4,14 +4,14 @@
 
 
 {% block content %}
-<div class="p-2 text-center ">
+<div class="p-4 text-center ">
     <div class="col-12">
         <div class="card m-5">
             <div class="card-body">
                 <img src="{{ car.image.url }}" class="card-img-top" alt="..." style="width:50%">
-                <h5 class="card-title">{{ car.name }}</h5>
-                <p>Author: {{car.price}}</p>
-                <p class="card-text">{{ car.detail}}</p>
+                <h3 class="card-titl fw-bold" style="color: #0F4C81;"> Model:{{ car.name }}</h3>
+                <h5 style="color: #0F4C81;"> Price:{{car.price}}</h5>
+                <p class="card-text fw-bold">{{ car.detail}}</p>
                 <a href="{% url 'home'%}" class="btn btn-warning">Buy Now</a>
                 
                
@@ -20,9 +20,9 @@
     </div>
 </div>
 
-<div class="card m-2">
-    <h5> Total Comments: {{ comments|length }}</h5>
-    <div class="card-body border m-2">
+<div class="card m-5 p-4">
+    <h5 style="color: #0F4C81;"> Total Comments: {{ comments|length }}</h5>
+    <div class="card-body border m-4 ">
         {% for c in comments %}
             <p>Name: {{ c.name }} {{ c.created_on }}</p>
             <p>Comment: {{ c.text }}</p>
@@ -31,13 +31,13 @@
 </div>
 
 
-<div class="card p-2 m-3">
-    <div class="card-body">
-        <h1>Add Comment </h1>
-        <form  class="mt-2" method='post'>
+<div class="card p-4 m-3">
+    <div class="card-body m-4">
+        <h1 style="color: #0F4C81; " class="text-center">Add Comment </h1>
+        <form  class="m-5" method='post'>
         {{comment_form | crispy}}
         {% csrf_token %}
-        <button  class="btn btn-warning mb-5">Submit</button>
+        <button  class="btn btn-warning mb-5 ">Submit</button>
         </form>
     </div>
   </div> 

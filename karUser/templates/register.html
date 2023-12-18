@@ -4,12 +4,12 @@
 
 {% if messages %}
 {% for m in messages %}
-<small class="fw-bold text-danger text-center p-3"> {{m}}</small>
+<small class="fw-bold text-danger text-center p-3 mt-5"> {{m}}</small>
 {% endfor %}
 {% endif %}
 
 
-<h1 class="text-center text-warning">{{ type }} in</h1>
+<h1 class="text-center text-warning m-5">{{ type }} in</h1>
 <form method='post' style="width:50%;margin:auto;" class="mt-5" novalidate>
      {% csrf_token %}
 

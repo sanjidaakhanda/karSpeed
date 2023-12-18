@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block  content%}
+<div class="container text-center p-5">
+    <div class="row  align-items-center justify-content-center mt-5">
+        <div class=" ">
+            <img class =" img-fluid mb-4" style="width:500px;" src="{% static 'about.jpg' %}" alt="" style="border-radius:20px;" />
+          <h1 style="color: #0F4C81; font-family: 'Arial', sans-serif; font-size: 24px; font-weight: bold;">
+           About us
+        </h1>
+        <p class="fw-bold p-3">
+            Welcome to our website! We are a fantastic team dedicated to providing
+            amazing products/services to our customers. Learn more about our company
+            and what we stand for.
+          
+            Our mission is to [insert your mission statement or key objectives here].
+            We are passionate about [describe what your company is passionate about].
+          
+            Feel free to explore our website and discover the great things we have to
+            offer. If you have any questions, please don't hesitate to contact us.
+          </p>
+           </div>
+{% endblock %}         

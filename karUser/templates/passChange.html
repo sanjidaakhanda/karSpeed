@@ -4,10 +4,10 @@
 
 {% block content %}
 
-<form method='post' style="width:50%;margin:auto;" class="mt-5">
+<form method='post' style="width:50%;margin:auto;" class="p-5">
 
     {% csrf_token %}
-    <h3 class="text-center text-warning">Change Your Password</h3>
+    <h3 class="text-center p-5 " style="color: #0F4C81;">Change Your Password</h3>
 
    <!-- {{ form | crispy }} -->
    {% for fm in form %}

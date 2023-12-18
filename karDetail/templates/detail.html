@@ -5,7 +5,7 @@
 {% block content %}
 <form style='width:50%;margin:auto;'class='mt-5 ' method='post' >
     {% csrf_token %}
-    <h1 class="text-center">Add your Car </h1>
+    <h1 class="text-center" style="color: #0F4C81;">Add your Car </h1>
     {{form | crispy}}
     <button class = "btn btn-outline-warning m-2"> Submit</button>
 </form>

@@ -36,21 +36,21 @@ def user_login(request):
               if user is not None:
                 messages.success(request,'login successfully')  
                 login(request,user)
-                return redirect('update')
+                return redirect('home')
             else:
                 messages.warning(request,'login information wrong')
                 return redirect('register')
         else:
               form = AuthenticationForm()
 
-        return render(request,'register.html',{'form':form, 'type':'Login'})
+        return render(request,'register.html',{'form':form, 'type':'Log'})
         
     else:
      return redirect('profileUpdate')
 
-# @login_required   
-# def UpdateProfile(request):
-#     return render(request,'Profile.html')
+  
+def about(request):
+    return render(request,'about.html')
     
 
 
