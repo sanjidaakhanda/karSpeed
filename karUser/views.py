@@ -34,11 +34,11 @@ def user_login(request):
               user_pass = form.cleaned_data['password']
               user = authenticate(username=user_name,password = user_pass)
               if user is not None:
-                messages.success(request,'login successfully')  
+                messages.success(request,'Login successfully')  
                 login(request,user)
                 return redirect('home')
             else:
-                messages.warning(request,'login information wrong')
+                messages.warning(request,'Login information wrong')
                 return redirect('register')
         else:
               form = AuthenticationForm()
@@ -60,16 +60,19 @@ def user_logout(request):
 
 
 def password_change(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+
     if request.method == 'POST':
-        form = PasswordChangeForm(user= request.user, data = request.POST)
+        form = PasswordChangeForm(user=request.user, data=request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request,'Password  changed successfully')  
-            update_session_auth_hash(request, form.user)
-            return redirect('profile')
+            messages.success(request, 'Password changed successfully')
+            return redirect('home')
     else:
-        form = PasswordChangeForm(user = request.user)
-    return render(request, 'passChange.html',{'form':form})
+        form = PasswordChangeForm(user=request.user)
+    
+    return render(request, 'passChange.html', {'form': form})
     
 @login_required
 def profileUpdate(request):

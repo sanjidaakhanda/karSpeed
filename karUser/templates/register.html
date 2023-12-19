@@ -2,11 +2,11 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-{% if messages %}
+{% comment %} {% if messages %}
 {% for m in messages %}
 <small class="fw-bold text-danger text-center p-3 mt-5"> {{m}}</small>
 {% endfor %}
-{% endif %}
+{% endif %} {% endcomment %}
 
 
 <h1 class="text-center text-warning m-5">{{ type }} in</h1>
